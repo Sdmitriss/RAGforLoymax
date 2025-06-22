@@ -1,0 +1,24 @@
+{
+    "file_name_texts": "texts_index.pkl",
+    "file_name_texts_add": "texts_add_index.pkl",
+    "file_name_index": "index_file.index",
+    "name_json_init": "RuBQ_2.0_paragraphs_1.json",
+    "folder_model": ".cashe/",
+    "model_embed_name": "cointegrated/LaBSE-en-ru",
+    "model_llm_name": {
+        "repo_id": "itlwas/YandexGPT-5-Lite-8B-instruct-Q4_K_M-GGUF",
+        "filename": "yandexgpt-5-lite-8b-instruct-q4_k_m.gguf"
+    },
+    "config_LLM": {
+        "max_tokens": 300,
+        "stop": [
+            "</s>"
+        ],
+        "temperature": 0.5,
+        "top_p": 0.95
+    },
+    "min_words": 20,
+    "top_k_faiss": 1,
+    "threshold": 1,
+    "distance_diff_vector": 0.1
+}

@@ -1,0 +1,16 @@
+FROM python:3.13.5
+
+WORKDIR /app
+
+COPY requirements_indexer.txt /app/requirements_indexer.txt
+RUN pip install --no-cache-dir -r /app/requirements_indexer.txt
+
+COPY main_indexer.py /app/main_indexer.py
+
+COPY .cashe/ /app/.cashe/
+COPY config/ /app/config/
+COPY logs/ /app/logs/
+COPY data_raw/ /app/data_raw/
+COPY src/ /app/src/
+
+CMD ["python", "/app/main_indexer.py"]

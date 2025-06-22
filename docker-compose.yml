@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  indexer:
+    build:
+      context: .
+      dockerfile: Dockerfile.indexer
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./config:/app/config
+      - ./data_raw:/app/data_raw
+      - ./logs:/app/logs
+      - ./.cashe:/app/.cashe
+
+  answer:
+    build:
+      context: .
+      dockerfile: Dockerfile.answer
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./config:/app/config
+      - ./.cashe:/app/.cashe
+

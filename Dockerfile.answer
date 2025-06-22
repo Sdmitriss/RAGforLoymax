@@ -1,0 +1,21 @@
+FROM python:3.13.5
+
+WORKDIR /app
+
+# Установка системных зависимостей для сборки llama-cpp и других библиотек
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements_answer.txt /app/requirements_answer.txt
+RUN pip install --no-cache-dir -r /app/requirements_answer.txt
+
+COPY main_answer.py /app/main_answer.py
+
+COPY .cashe/ /app/.cashe/
+COPY config/ /app/config/
+COPY src/ /app/src/
+
+CMD ["python", "/app/main_answer.py"]
